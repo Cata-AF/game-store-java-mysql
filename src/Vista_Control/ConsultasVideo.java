@@ -168,7 +168,7 @@ public class ConsultasVideo extends javax.swing.JFrame {
         int productIdx = tblVideojuegos.getSelectedRow();
 
         if (productIdx == -1) {
-            JOptionPane.showMessageDialog(this, "You must select one product", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Debes seleccionar un producto", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 

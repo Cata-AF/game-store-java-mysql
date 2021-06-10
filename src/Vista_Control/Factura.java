@@ -28,6 +28,9 @@ public class Factura extends javax.swing.JFrame {
     
     public static void DrawTable(){
         
+        if(jTable1 == null)
+            return;
+        
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);  // Limpio la tabla
         String fila[] = new String[2];
@@ -46,7 +49,7 @@ public class Factura extends javax.swing.JFrame {
             model.addRow(fila);
         }
         
-        priceLabel.setText("Precio total: "+finalValue);
+        priceLabel.setText("Precio total: " + finalValue);
     }
 
     
@@ -153,7 +156,7 @@ public class Factura extends javax.swing.JFrame {
         int productIdx = jTable1.getSelectedRow();
         
         if(productIdx == -1){
-            JOptionPane.showMessageDialog(this, "You must select one product","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Debes seleccionar un producto","Error",JOptionPane.ERROR_MESSAGE);
             return;
         }
         

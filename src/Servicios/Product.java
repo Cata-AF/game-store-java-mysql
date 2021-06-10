@@ -37,7 +37,7 @@ public class Product {
             }
             
         } catch (Exception e) {
-            System.out.println("An error ocurred trying to parse the query result");
+            System.out.println("Se produjo un error al intentar analizar el resultado de la consulta.");
         }
     }
 }

@@ -18,6 +18,6 @@ public class CarritoDeCompras {
     public static void AddProduct(Product product){
         products.add(product);
         
-        System.out.println("Product added: "+product.Referencia);
+        System.out.println("Product added: " + product.Referencia);
     }
 }
