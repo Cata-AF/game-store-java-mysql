@@ -7,6 +7,7 @@ package Vista_Control;
 
 import Servicios.CarritoDeCompras;
 import Servicios.Product;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -15,6 +16,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Factura extends javax.swing.JFrame {
 
+    static float finalValue = 0;
+    
     /**
      * Creates new form Factura
      */
@@ -23,12 +26,13 @@ public class Factura extends javax.swing.JFrame {
         DrawTable();
     }
     
-    private void DrawTable(){
+    public static void DrawTable(){
         
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);  // Limpio la tabla
         String fila[] = new String[2];
         
-        float finalValue = 0;
+        finalValue = 0;
         
         for (int i = 0; i < CarritoDeCompras.products.size(); i++) {
             
@@ -64,7 +68,12 @@ public class Factura extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLocation(new java.awt.Point(0, 0));
+        setMinimumSize(new java.awt.Dimension(399, 461));
+        setPreferredSize(new java.awt.Dimension(399, 461));
+        setResizable(false);
+        setSize(new java.awt.Dimension(399, 461));
+        getContentPane().setLayout(null);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -76,36 +85,79 @@ public class Factura extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 379, 270));
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(10, 11, 379, 270);
 
         jButton1.setText("Pagar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                onPressBuy(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 100, 50));
+        getContentPane().add(jButton1);
+        jButton1.setBounds(20, 380, 100, 50);
 
         jButton2.setText("Eliminar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, 100, 50));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                onPressDelete(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(270, 380, 100, 50);
 
         jButton3.setText("Cancelar");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 100, 50));
+        getContentPane().add(jButton3);
+        jButton3.setBounds(150, 380, 100, 50);
 
         priceLabel.setBackground(new java.awt.Color(153, 255, 255));
         priceLabel.setForeground(new java.awt.Color(255, 255, 255));
         priceLabel.setText("Price: ");
-        getContentPane().add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 284, 140, 50));
+        getContentPane().add(priceLabel);
+        priceLabel.setBounds(130, 284, 140, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\meaf7\\Downloads\\WhatsApp Image 2021-06-09 at 7.37.43 PM.jpeg")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 399, 463));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 399, 463);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void onPressBuy(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onPressBuy
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        if(finalValue <= 0){
+            JOptionPane.showMessageDialog(this, "No hay productos en el carrito","Error",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        JOptionPane.showMessageDialog(this, "Compra exitosa","Compra",JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_onPressBuy
+
+    private void onPressDelete(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onPressDelete
+        // TODO add your handling code here:      
+
+        int productIdx = jTable1.getSelectedRow();
+        
+        if(productIdx == -1){
+            JOptionPane.showMessageDialog(this, "You must select one product","Error",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        int op = JOptionPane.showConfirmDialog(this, "Seguro quieres borrar este producto?");
+        
+        if(op == JOptionPane.CANCEL_OPTION)
+            return;
+        
+        Product product = CarritoDeCompras.products.get(productIdx);
+        finalValue -= product.Precio;
+        
+        priceLabel.setText("Precio total: "+finalValue);
+        
+        CarritoDeCompras.products.remove(productIdx);
+        ((DefaultTableModel)jTable1.getModel()).removeRow(productIdx);
+
+    }//GEN-LAST:event_onPressDelete
 
     /**
      * @param args the command line arguments
@@ -148,7 +200,7 @@ public class Factura extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JLabel priceLabel;
+    private static javax.swing.JTable jTable1;
+    private static javax.swing.JLabel priceLabel;
     // End of variables declaration//GEN-END:variables
 }

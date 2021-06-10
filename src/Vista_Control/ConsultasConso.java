@@ -24,6 +24,8 @@ public class ConsultasConso extends javax.swing.JFrame {
 
     static ArrayList<Product> products = new ArrayList<>();
     
+    
+    
     /**
      * Creates new form ConsultasConso
      */
@@ -50,11 +52,11 @@ public class ConsultasConso extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblConsultas = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jLabel3.setText("jLabel3");
 
@@ -70,15 +72,6 @@ public class ConsultasConso extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblConsultas);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 410, 350));
-
-        jButton1.setFont(new java.awt.Font("Zilla Slab", 1, 18)); // NOI18N
-        jButton1.setText("SALIR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 150, 40));
 
         jButton2.setFont(new java.awt.Font("Zilla Slab", 1, 18)); // NOI18N
         jButton2.setText("Añadir al carrito");
@@ -107,6 +100,16 @@ public class ConsultasConso extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\meaf7\\Downloads\\WhatsApp Image 2021-06-09 at 7.37.43 PM.jpeg")); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 560));
 
+        jButton1.setFont(new java.awt.Font("Zilla Slab", 1, 18)); // NOI18N
+        jButton1.setText("SALIR");
+        jButton1.setEnabled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 150, 40));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -122,6 +125,8 @@ public class ConsultasConso extends javax.swing.JFrame {
     private void OnPressConsultar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OnPressConsultar
         ResultSet resultado = null;
 
+        jButton3.setVisible(false);
+        
         DefaultTableModel tabla = new DefaultTableModel();
         tblConsultas.setModel(tabla);
 
@@ -154,7 +159,7 @@ public class ConsultasConso extends javax.swing.JFrame {
             Logger.getLogger(Gamestore.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        conexion.cerrar();
+        conexion.cerrar();        
     }//GEN-LAST:event_OnPressConsultar
 
     private void OnPressAddToShoppingCart(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OnPressAddToShoppingCart
@@ -169,6 +174,7 @@ public class ConsultasConso extends javax.swing.JFrame {
         
         Product product = products.get(productIdx);
         CarritoDeCompras.AddProduct(product);
+        Factura.DrawTable();
         
         JOptionPane.showMessageDialog(this, "Producto añadido");
     }//GEN-LAST:event_OnPressAddToShoppingCart

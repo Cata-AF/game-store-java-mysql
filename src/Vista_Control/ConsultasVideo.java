@@ -46,12 +46,16 @@ public class ConsultasVideo extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblVideojuegos = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(471, 540));
+        setPreferredSize(new java.awt.Dimension(471, 540));
+        setResizable(false);
+        setSize(new java.awt.Dimension(471, 540));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblVideojuegos.setModel(new javax.swing.table.DefaultTableModel(
@@ -70,15 +74,6 @@ public class ConsultasVideo extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Consulta Videojuegos");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
-
-        jButton1.setFont(new java.awt.Font("Zilla Slab", 1, 18)); // NOI18N
-        jButton1.setText("SALIR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 150, 40));
 
         jButton2.setFont(new java.awt.Font("Zilla Slab", 1, 18)); // NOI18N
         jButton2.setText("CONSULTAR");
@@ -102,7 +97,18 @@ public class ConsultasVideo extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\meaf7\\Downloads\\WhatsApp Image 2021-06-09 at 7.37.43 PM.jpeg")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -680, 900, 1620));
 
+        jButton1.setFont(new java.awt.Font("Zilla Slab", 1, 18)); // NOI18N
+        jButton1.setText("SALIR");
+        jButton1.setEnabled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 150, 40));
+
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -111,6 +117,9 @@ public class ConsultasVideo extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        jButton2.setVisible(false);
+        
         ResultSet resultado = null;
 
         DefaultTableModel tabla = new DefaultTableModel();
@@ -128,7 +137,6 @@ public class ConsultasVideo extends javax.swing.JFrame {
         try {
             while (resultado.next()) {
 
-                System.out.println(resultado.getString("Precio"));
                 Product product = new Product(resultado,true);
                 products.add(product);
 
@@ -144,7 +152,7 @@ public class ConsultasVideo extends javax.swing.JFrame {
             Logger.getLogger(Gamestore.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        conexion.cerrar();
+        conexion.cerrar();        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -162,6 +170,7 @@ public class ConsultasVideo extends javax.swing.JFrame {
 
         Product product = products.get(productIdx);
         CarritoDeCompras.AddProduct(product);
+        Factura.DrawTable();
 
         JOptionPane.showMessageDialog(this, "Producto añadido");
     }//GEN-LAST:event_jButton3OnPressAddToShoppingCart

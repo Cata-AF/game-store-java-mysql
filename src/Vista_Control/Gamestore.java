@@ -52,7 +52,7 @@ public class Gamestore extends javax.swing.JFrame {
         jButton4.setText("FACTURA");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                onPressFactura(evt);
             }
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 170, 50));
@@ -100,6 +100,7 @@ public class Gamestore extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 470));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -110,23 +111,17 @@ public class Gamestore extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ConsultasVideo consul = new ConsultasVideo(); 
         consul.setVisible(true);
-        consul.setSize(900 , 1620);
-        consul.setResizable(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         ConsultasConso consul1 = new ConsultasConso(); 
         consul1.setVisible(true);
-        consul1.setSize(900 , 1620);
-        consul1.setResizable(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void onPressFactura(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onPressFactura
         Factura fact = new Factura(); 
         fact.setVisible(true);
-        fact.setSize(640 , 360);
-        fact.setResizable(false);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_onPressFactura
 
     /**
      * @param args the command line arguments
