@@ -50,6 +50,7 @@ public class Gamestore extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         jButton4.setForeground(new java.awt.Color(0, 0, 102));
         jButton4.setText("FACTURA");
+        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 onPressFactura(evt);
@@ -66,6 +67,7 @@ public class Gamestore extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 102));
         jButton1.setText("INICIAR BUSQUEDA VIDEOJUEGOS");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -73,11 +75,11 @@ public class Gamestore extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 300, 50));
 
-        jButton2.setBackground(new java.awt.Color(153, 153, 255));
+        jButton2.setBackground(new java.awt.Color(255, 153, 153));
         jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 102));
         jButton2.setText("SALIR");
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -89,6 +91,7 @@ public class Gamestore extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 0, 102));
         jButton3.setText("INICIAR BUSQUEDA CONSOLAS");
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);

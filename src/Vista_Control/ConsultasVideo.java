@@ -70,21 +70,25 @@ public class ConsultasVideo extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 390, 330));
 
-        jLabel2.setFont(new java.awt.Font("Zilla Slab", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Consulta Videojuegos");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Zilla Slab", 1, 18)); // NOI18N
+        jButton2.setBackground(new java.awt.Color(204, 204, 255));
+        jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 102));
         jButton2.setText("CONSULTAR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 150, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 180, 80));
 
-        jButton3.setFont(new java.awt.Font("Zilla Slab", 1, 18)); // NOI18N
+        jButton3.setBackground(new java.awt.Color(204, 204, 255));
+        jButton3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 0, 102));
         jButton3.setText("Añadir al carrito");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +96,7 @@ public class ConsultasVideo extends javax.swing.JFrame {
                 jButton3OnPressAddToShoppingCart(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, 180, 80));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 180, 80));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\meaf7\\Downloads\\WhatsApp Image 2021-06-09 at 7.37.43 PM.jpeg")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -680, 900, 1620));

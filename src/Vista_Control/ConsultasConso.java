@@ -69,11 +69,21 @@ public class ConsultasConso extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblConsultas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
         jScrollPane1.setViewportView(tblConsultas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 410, 350));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 700, 350));
 
-        jButton2.setFont(new java.awt.Font("Zilla Slab", 1, 18)); // NOI18N
+        jButton2.setBackground(new java.awt.Color(204, 204, 255));
+        jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 102));
         jButton2.setText("Añadir al carrito");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,24 +91,26 @@ public class ConsultasConso extends javax.swing.JFrame {
                 OnPressAddToShoppingCart(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 450, 180, 80));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, 200, 80));
 
-        jButton3.setFont(new java.awt.Font("Zilla Slab", 1, 18)); // NOI18N
+        jButton3.setBackground(new java.awt.Color(204, 204, 255));
+        jButton3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 0, 102));
         jButton3.setText("CONSULTAR");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OnPressConsultar(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 150, 40));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 200, 80));
 
-        jLabel2.setFont(new java.awt.Font("Zilla Slab", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Consultas Consolas");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 240, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 400, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\meaf7\\Downloads\\WhatsApp Image 2021-06-09 at 7.37.43 PM.jpeg")); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 560));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 560));
 
         jButton1.setFont(new java.awt.Font("Zilla Slab", 1, 18)); // NOI18N
         jButton1.setText("SALIR");
@@ -111,6 +123,7 @@ public class ConsultasConso extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 150, 40));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

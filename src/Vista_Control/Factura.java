@@ -63,7 +63,6 @@ public class Factura extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         priceLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -73,7 +72,9 @@ public class Factura extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(399, 461));
         setResizable(false);
         setSize(new java.awt.Dimension(399, 461));
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane1.setBackground(new java.awt.Color(204, 204, 255));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -82,43 +83,55 @@ public class Factura extends javax.swing.JFrame {
             new String [] {
                 "Nombre", "Precio"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+        }
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 11, 379, 270);
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 360, 240));
 
+        jButton1.setBackground(new java.awt.Color(204, 255, 204));
+        jButton1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 102));
         jButton1.setText("Pagar");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 onPressBuy(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(20, 380, 100, 50);
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 110, 60));
 
+        jButton2.setBackground(new java.awt.Color(255, 153, 153));
+        jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 102));
         jButton2.setText("Eliminar");
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 onPressDelete(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(270, 380, 100, 50);
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 110, 60));
 
-        jButton3.setText("Cancelar");
-        getContentPane().add(jButton3);
-        jButton3.setBounds(150, 380, 100, 50);
-
-        priceLabel.setBackground(new java.awt.Color(153, 255, 255));
+        priceLabel.setBackground(new java.awt.Color(255, 255, 255));
+        priceLabel.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         priceLabel.setForeground(new java.awt.Color(255, 255, 255));
         priceLabel.setText("Price: ");
-        getContentPane().add(priceLabel);
-        priceLabel.setBounds(130, 284, 140, 50);
+        getContentPane().add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 240, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\meaf7\\Downloads\\WhatsApp Image 2021-06-09 at 7.37.43 PM.jpeg")); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 399, 463);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 463));
 
         pack();
         setLocationRelativeTo(null);
@@ -197,7 +210,6 @@ public class Factura extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private static javax.swing.JTable jTable1;
