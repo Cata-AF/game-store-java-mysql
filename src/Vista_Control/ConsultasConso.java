@@ -6,7 +6,6 @@
 package Vista_Control;
 
 import Servicios.CarritoDeCompras;
-import Servicios.ConexionBD;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -46,30 +45,26 @@ public class ConsultasConso extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblConsultas = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-
-        jLabel3.setText("jLabel3");
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        TituloL = new javax.swing.JLabel();
+        TablaSP = new javax.swing.JScrollPane();
+        ConsolasT = new javax.swing.JTable();
+        ConsultarB = new javax.swing.JButton();
+        AñadeB = new javax.swing.JButton();
+        NombresL = new javax.swing.JLabel();
+        VersionL = new javax.swing.JLabel();
+        JavaVersionL = new javax.swing.JLabel();
+        FondoL = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Consolas");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblConsultas.setModel(new javax.swing.table.DefaultTableModel(
+        TituloL.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
+        TituloL.setForeground(new java.awt.Color(255, 255, 255));
+        TituloL.setText("Consultas Consolas");
+        getContentPane().add(TituloL, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 400, -1));
+
+        ConsolasT.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -77,71 +72,65 @@ public class ConsultasConso extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(tblConsultas);
+        TablaSP.setViewportView(ConsolasT);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 700, 350));
+        getContentPane().add(TablaSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 700, 350));
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 255));
-        jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 102));
-        jButton2.setText("Añadir al carrito");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-                OnPressAddToShoppingCart(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, 200, 80));
-
-        jButton3.setBackground(new java.awt.Color(204, 204, 255));
-        jButton3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 102));
-        jButton3.setText("CONSULTAR");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        ConsultarB.setBackground(new java.awt.Color(204, 204, 255));
+        ConsultarB.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        ConsultarB.setForeground(new java.awt.Color(0, 0, 102));
+        ConsultarB.setText("CONSULTAR");
+        ConsultarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OnPressConsultar(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 200, 80));
+        getContentPane().add(ConsultarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 200, 60));
 
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Consultas Consolas");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 400, -1));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\meaf7\\Downloads\\WhatsApp Image 2021-06-09 at 7.37.43 PM.jpeg")); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 560));
-
-        jButton1.setFont(new java.awt.Font("Zilla Slab", 1, 18)); // NOI18N
-        jButton1.setText("SALIR");
-        jButton1.setEnabled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        AñadeB.setBackground(new java.awt.Color(204, 204, 255));
+        AñadeB.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        AñadeB.setForeground(new java.awt.Color(0, 0, 102));
+        AñadeB.setText("Añadir al carrito");
+        AñadeB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AñadeBActionPerformed(evt);
+                OnPressAddToShoppingCart(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 150, 40));
+        getContentPane().add(AñadeB, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, 200, 60));
+
+        NombresL.setForeground(new java.awt.Color(255, 255, 255));
+        NombresL.setText("Andrés Charria / Catalina Alba / Sergio Pulido / Laura Londoño  ");
+        getContentPane().add(NombresL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, -1, -1));
+
+        VersionL.setForeground(new java.awt.Color(255, 255, 255));
+        VersionL.setText("Product Version: Apache NetBeans IDE 12.2");
+        VersionL.setToolTipText("");
+        getContentPane().add(VersionL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, -1, -1));
+
+        JavaVersionL.setForeground(new java.awt.Color(255, 255, 255));
+        JavaVersionL.setText("Java: 1.8.0_111; Java HotSpot(TM) 64-Bit Server VM 25.111-b14");
+        JavaVersionL.setToolTipText("");
+        getContentPane().add(JavaVersionL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, -1, -1));
+
+        FondoL.setIcon(new javax.swing.ImageIcon("C:\\Users\\meaf7\\Downloads\\WhatsApp Image 2021-06-09 at 7.37.43 PM.jpeg")); // NOI18N
+        getContentPane().add(FondoL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 560));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       JOptionPane.showMessageDialog(null, "Se ha terminado con la ejecución" , "Conexion Terminada", JOptionPane.INFORMATION_MESSAGE);
-       System.exit(0);                                     
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void AñadeBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AñadeBActionPerformed
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_AñadeBActionPerformed
 
     private void OnPressConsultar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OnPressConsultar
         ResultSet resultado = null;
 
-        jButton3.setVisible(false);
+        ConsultarB.setVisible(false);
         
         DefaultTableModel tabla = new DefaultTableModel();
-        tblConsultas.setModel(tabla);
+        ConsolasT.setModel(tabla);
 
         tabla.addColumn("Almacen");
         tabla.addColumn("Nombre");
@@ -177,7 +166,7 @@ public class ConsultasConso extends javax.swing.JFrame {
 
     private void OnPressAddToShoppingCart(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OnPressAddToShoppingCart
         // TODO add your handling code here:
-        int productIdx = tblConsultas.getSelectedRow();
+        int productIdx = ConsolasT.getSelectedRow();
         
         if(productIdx == -1){
             JOptionPane.showMessageDialog(this, "Debes seleccionar un producto","Error",JOptionPane.ERROR_MESSAGE);
@@ -187,23 +176,21 @@ public class ConsultasConso extends javax.swing.JFrame {
         
         Product product = products.get(productIdx);
         CarritoDeCompras.AddProduct(product);
-        Factura.DrawTable();
+        Carrito.DrawTable();
         
         JOptionPane.showMessageDialog(this, "Producto añadido");
     }//GEN-LAST:event_OnPressAddToShoppingCart
   
   ConexionBD conexion = null;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblConsultas;
+    private javax.swing.JButton AñadeB;
+    private javax.swing.JTable ConsolasT;
+    private javax.swing.JButton ConsultarB;
+    private javax.swing.JLabel FondoL;
+    private javax.swing.JLabel JavaVersionL;
+    private javax.swing.JLabel NombresL;
+    private javax.swing.JScrollPane TablaSP;
+    private javax.swing.JLabel TituloL;
+    private javax.swing.JLabel VersionL;
     // End of variables declaration//GEN-END:variables
 }

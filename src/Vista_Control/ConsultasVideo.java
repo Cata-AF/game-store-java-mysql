@@ -6,7 +6,6 @@
 package Vista_Control;
 
 import Servicios.CarritoDeCompras;
-import java.sql.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -14,7 +13,6 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import Servicios.ConexionBD;
 import Servicios.Product;
-import static Vista_Control.ConsultasConso.products;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -43,22 +41,25 @@ public class ConsultasVideo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblVideojuegos = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        TablaSP = new javax.swing.JScrollPane();
+        JuegosT = new javax.swing.JTable();
+        TituloL = new javax.swing.JLabel();
+        ConsultarB = new javax.swing.JButton();
+        AñadeB = new javax.swing.JButton();
+        JavaVersionL = new javax.swing.JLabel();
+        VersionL = new javax.swing.JLabel();
+        NombresL = new javax.swing.JLabel();
+        FondoL = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Videojuegos");
         setMinimumSize(new java.awt.Dimension(471, 540));
         setPreferredSize(new java.awt.Dimension(471, 540));
         setResizable(false);
         setSize(new java.awt.Dimension(471, 540));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblVideojuegos.setModel(new javax.swing.table.DefaultTableModel(
+        JuegosT.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -66,68 +67,67 @@ public class ConsultasVideo extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(tblVideojuegos);
+        TablaSP.setViewportView(JuegosT);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 390, 330));
+        getContentPane().add(TablaSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 390, 300));
 
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Consulta Videojuegos");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+        TituloL.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 36)); // NOI18N
+        TituloL.setForeground(new java.awt.Color(255, 255, 255));
+        TituloL.setText("Consulta Videojuegos");
+        getContentPane().add(TituloL, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 255));
-        jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 102));
-        jButton2.setText("CONSULTAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        ConsultarB.setBackground(new java.awt.Color(204, 204, 255));
+        ConsultarB.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        ConsultarB.setForeground(new java.awt.Color(0, 0, 102));
+        ConsultarB.setText("CONSULTAR");
+        ConsultarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                ConsultarBActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 180, 80));
+        getContentPane().add(ConsultarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 180, 50));
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 255));
-        jButton3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 102));
-        jButton3.setText("Añadir al carrito");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        AñadeB.setBackground(new java.awt.Color(204, 204, 255));
+        AñadeB.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        AñadeB.setForeground(new java.awt.Color(0, 0, 102));
+        AñadeB.setText("Añadir al carrito");
+        AñadeB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-                jButton3OnPressAddToShoppingCart(evt);
+                AñadeBActionPerformed(evt);
+                AñadeBOnPressAddToShoppingCart(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 180, 80));
+        getContentPane().add(AñadeB, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 180, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\meaf7\\Downloads\\WhatsApp Image 2021-06-09 at 7.37.43 PM.jpeg")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -680, 900, 1620));
+        JavaVersionL.setForeground(new java.awt.Color(255, 255, 255));
+        JavaVersionL.setText("Java: 1.8.0_111; Java HotSpot(TM) 64-Bit Server VM 25.111-b14");
+        JavaVersionL.setToolTipText("");
+        getContentPane().add(JavaVersionL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Zilla Slab", 1, 18)); // NOI18N
-        jButton1.setText("SALIR");
-        jButton1.setEnabled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 150, 40));
+        VersionL.setForeground(new java.awt.Color(255, 255, 255));
+        VersionL.setText("Product Version: Apache NetBeans IDE 12.2");
+        VersionL.setToolTipText("");
+        getContentPane().add(VersionL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
+
+        NombresL.setForeground(new java.awt.Color(255, 255, 255));
+        NombresL.setText("Andrés Charria / Catalina Alba / Sergio Pulido / Laura Londoño  ");
+        getContentPane().add(NombresL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, -1));
+
+        FondoL.setIcon(new javax.swing.ImageIcon("C:\\Users\\meaf7\\Downloads\\WhatsApp Image 2021-06-09 at 7.37.43 PM.jpeg")); // NOI18N
+        getContentPane().add(FondoL, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -680, 900, 1620));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(null, "Se ha terminado con la ejecución", "Conexion Terminada", JOptionPane.INFORMATION_MESSAGE);
-        System.exit(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void ConsultarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarBActionPerformed
         
-        jButton2.setVisible(false);
+        ConsultarB.setVisible(false);
         
         ResultSet resultado = null;
 
         DefaultTableModel tabla = new DefaultTableModel();
-        tblVideojuegos.setModel(tabla);
+        JuegosT.setModel(tabla);
 
         tabla.addColumn("Almacen");
         tabla.addColumn("Nombre");
@@ -157,15 +157,15 @@ public class ConsultasVideo extends javax.swing.JFrame {
         }
 
         conexion.cerrar();        
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_ConsultarBActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void AñadeBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AñadeBActionPerformed
 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_AñadeBActionPerformed
 
-    private void jButton3OnPressAddToShoppingCart(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3OnPressAddToShoppingCart
+    private void AñadeBOnPressAddToShoppingCart(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AñadeBOnPressAddToShoppingCart
         // TODO add your handling code here:
-        int productIdx = tblVideojuegos.getSelectedRow();
+        int productIdx = JuegosT.getSelectedRow();
 
         if (productIdx == -1) {
             JOptionPane.showMessageDialog(this, "Debes seleccionar un producto", "Error", JOptionPane.ERROR_MESSAGE);
@@ -174,19 +174,21 @@ public class ConsultasVideo extends javax.swing.JFrame {
 
         Product product = products.get(productIdx);
         CarritoDeCompras.AddProduct(product);
-        Factura.DrawTable();
+        Carrito.DrawTable();
 
         JOptionPane.showMessageDialog(this, "Producto añadido");
-    }//GEN-LAST:event_jButton3OnPressAddToShoppingCart
+    }//GEN-LAST:event_AñadeBOnPressAddToShoppingCart
 
     ConexionBD conexion = null;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblVideojuegos;
+    private javax.swing.JButton AñadeB;
+    private javax.swing.JButton ConsultarB;
+    private javax.swing.JLabel FondoL;
+    private javax.swing.JLabel JavaVersionL;
+    private javax.swing.JTable JuegosT;
+    private javax.swing.JLabel NombresL;
+    private javax.swing.JScrollPane TablaSP;
+    private javax.swing.JLabel TituloL;
+    private javax.swing.JLabel VersionL;
     // End of variables declaration//GEN-END:variables
 }
